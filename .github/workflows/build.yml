@@ -3,22 +3,22 @@ on:
   push:
     branches: [master]
 
-build:
-  if: github.event_name != 'pull_request'
-  name: ${{ matrix.mold }}
-  runs-on: ubuntu-latest
-  strategy:
-    fail-fast: false
-    matrix:
-      mold: [SimpleAlloy, ArchLinux]
+jobs:
+  build:
+    name: ${{ matrix.mold }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        mold: [SimpleAlloy, ArchLinux]
 
-  steps:
-  - name: Checkout
-    uses: actions/checkout@v4
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
 
-  - name: Build goldboot image
-    uses: fossable/goldboot-action@main
-    with:
-      context: ${{ matrix.mold }}
-      output: ${{ matrix.mold }}.gb
+    - name: Build goldboot image
+      uses: fossable/goldboot-action@main
+      with:
+        context: ${{ matrix.mold }}
+        output: ${{ matrix.mold }}.gb
 
