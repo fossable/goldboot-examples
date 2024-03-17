@@ -1,7 +1,12 @@
 name: build
+permissions:
+  contents: read
 on:
-  push:
-    branches: [master]
+  schedule:
+    - cron:  '0 5 * * 5'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -10,15 +15,34 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mold: [SimpleAlloy, ArchLinux]
+        name:
+          - SimpleAlloy
+          - ArchLinux
 
     steps:
+    - name: Increase free space
+      uses: easimon/maximize-build-space@master
+      with:
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+
     - name: Checkout
       uses: actions/checkout@v4
 
     - name: Build goldboot image
       uses: fossable/goldboot-action@main
       with:
-        context: ${{ matrix.mold }}
-        output: ${{ matrix.mold }}.gb
+        context: ${{ matrix.name }}
+        output: ${{ matrix.name }}.gb
+        # record: true
+        # debug: true
 
+    # TODO push to registry
+
+    - name: Store debug output
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: Debug output
+        path: './screenshots'
