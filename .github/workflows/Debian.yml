@@ -1,0 +1,16 @@
+name: Debian
+on:
+  schedule:
+    - cron:  '0 5 * * 5'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: fossable/goldboot-action@main
+      with:
+        context: Debian
+        output: Debian.gb
+        # output: gb://pub.goldboot.org/default/Debian
