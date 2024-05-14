@@ -6,5 +6,5 @@ playbook.
 To generate the image, enter the directory and run:
 
 ```sh
-goldboot build
+goldboot cast .
 ```

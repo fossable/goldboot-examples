@@ -1,0 +1,30 @@
+{
+  "alloy": [
+    {
+      "fabricators": null,
+      "mold": {
+        "ArchLinux": {
+          "hostname": "goldboot",
+          "mirrorlist": null,
+          "root_password": {
+            "plaintext": "root"
+          }
+        }
+      },
+      "pref_size": null,
+      "source": {
+        "Iso": {
+          "url": "http://mirrors.edge.kernel.org/archlinux/iso/latest/archlinux-2024.05.01-x86_64.iso",
+          "checksum": "sha256:1b4a04ef8a7350852a13070ee498442b087a607a18840b4dd7d99867eb5f6a4c"
+        }
+      }
+    }
+  ],
+  "arch": "Amd64",
+  "debug": false,
+  "name": "goldboot",
+  "record": false,
+  "public": false,
+  "no_accel": false,
+  "size": "28GiB"
+}
