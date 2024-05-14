@@ -13,4 +13,5 @@ jobs:
       with:
         context: ArchLinux
         output: ArchLinux.gb
+        log-level: debug
         # output: gb://pub.goldboot.org/default/ArchLinux

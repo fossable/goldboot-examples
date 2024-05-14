@@ -13,4 +13,5 @@ jobs:
       with:
         context: Debian
         output: Debian.gb
+        log-level: debug
         # output: gb://pub.goldboot.org/default/Debian
