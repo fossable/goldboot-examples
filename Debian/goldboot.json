@@ -2,7 +2,7 @@
   "alloy": [
     {
       "fabricators": null,
-      "mold": {
+      "os": {
         "Debian": {
           "edition": "Bookworm",
           "hostname": "goldboot",

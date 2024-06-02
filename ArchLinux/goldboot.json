@@ -2,7 +2,7 @@
   "alloy": [
     {
       "fabricators": null,
-      "mold": {
+      "os": {
         "ArchLinux": {
           "hostname": "goldboot",
           "mirrorlist": null,

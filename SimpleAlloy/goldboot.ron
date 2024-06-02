@@ -9,7 +9,7 @@
         checksum: "sha1:3700a16d4fcabbd29e9a7fbc97da732c4577dc2a",
         url: "https://mirrors.edge.kernel.org/archlinux/iso/latest/archlinux-2022.05.01-x86_64.iso",
       ),
-      mold: ArchLinux(
+      os: ArchLinux(
         hostname: "ExampleArch",
         mirrorlist: [
           "https://mirrors.edge.kernel.org/archlinux/$repo/os/$arch",
@@ -19,7 +19,7 @@
       ),
     ),
     (
-      mold: Windows11(
+      os: Windows11(
         hostname: "ExampleWindows",
       ),
     ),
